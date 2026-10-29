@@ -1,0 +1,1 @@
+# skill-aws-solution-architect
