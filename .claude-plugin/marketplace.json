@@ -1,0 +1,11 @@
+{
+  "name": "aws-solution-architect",
+  "owner": { "name": "umbertodenaro" },
+  "plugins": [
+    {
+      "name": "aws-solution-architect",
+      "source": "./",
+      "description": "AWS Solution Architect skill grounded in official AWS documentation, with architecture diagram generation."
+    }
+  ]
+}

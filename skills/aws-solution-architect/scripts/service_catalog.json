@@ -1,0 +1,635 @@
+{
+ "_comment": "Service -> icon identifiers per renderer. null = no verified icon; renderers fall back to a labelled generic box. Re-verify with scripts/verify_catalog.py.",
+ "category_colors": {
+  "compute": "#ED7100",
+  "storage": "#7AA116",
+  "database": "#C925D1",
+  "network": "#8C4FFF",
+  "analytics": "#8C4FFF",
+  "security": "#DD344C",
+  "integration": "#E7157B",
+  "management": "#E7157B",
+  "devtools": "#C925D1",
+  "ml": "#01A88D",
+  "migration": "#01A88D",
+  "generic": "#232F3E"
+ },
+ "services": {
+  "ec2": {
+   "label": "Amazon EC2",
+   "category": "compute",
+   "drawio": "res:ec2",
+   "plantuml": "Compute/EC2",
+   "diagrams": "compute.EC2"
+  },
+  "lambda": {
+   "label": "AWS Lambda",
+   "category": "compute",
+   "drawio": "res:lambda",
+   "plantuml": "Compute/Lambda",
+   "diagrams": "compute.Lambda"
+  },
+  "ecs": {
+   "label": "Amazon ECS",
+   "category": "compute",
+   "drawio": "res:ecs",
+   "plantuml": null,
+   "diagrams": "compute.ECS"
+  },
+  "eks": {
+   "label": "Amazon EKS",
+   "category": "compute",
+   "drawio": "res:eks",
+   "plantuml": null,
+   "diagrams": "compute.EKS"
+  },
+  "fargate": {
+   "label": "AWS Fargate",
+   "category": "compute",
+   "drawio": "res:fargate",
+   "plantuml": "Containers/Fargate",
+   "diagrams": "compute.Fargate"
+  },
+  "batch": {
+   "label": "AWS Batch",
+   "category": "compute",
+   "drawio": "res:batch",
+   "plantuml": "Compute/Batch",
+   "diagrams": "compute.Batch"
+  },
+  "beanstalk": {
+   "label": "AWS Elastic Beanstalk",
+   "category": "compute",
+   "drawio": "res:elastic_beanstalk",
+   "plantuml": "Compute/ElasticBeanstalk",
+   "diagrams": "compute.ElasticBeanstalk"
+  },
+  "autoscaling": {
+   "label": "EC2 Auto Scaling",
+   "category": "compute",
+   "drawio": "res:auto_scaling2",
+   "plantuml": "Compute/EC2AutoScaling",
+   "diagrams": "compute.EC2AutoScaling"
+  },
+  "apprunner": {
+   "label": "AWS App Runner",
+   "category": "compute",
+   "drawio": "res:app_runner",
+   "plantuml": "Compute/AppRunner",
+   "diagrams": "compute.AppRunner"
+  },
+  "vpc": {
+   "label": "Amazon VPC",
+   "category": "network",
+   "drawio": "shp:vpc_virtual_private_cloud_vpc",
+   "plantuml": null,
+   "diagrams": "network.VPC"
+  },
+  "alb": {
+   "label": "Application Load Balancer",
+   "category": "network",
+   "drawio": "shp:application_load_balancer",
+   "plantuml": "NetworkingContentDelivery/ElasticLoadBalancingApplicationLoadBalancer",
+   "diagrams": "network.ALB"
+  },
+  "nlb": {
+   "label": "Network Load Balancer",
+   "category": "network",
+   "drawio": "shp:network_load_balancer",
+   "plantuml": "NetworkingContentDelivery/ElasticLoadBalancingNetworkLoadBalancer",
+   "diagrams": "network.NLB"
+  },
+  "apigw": {
+   "label": "Amazon API Gateway",
+   "category": "network",
+   "drawio": "res:api_gateway",
+   "plantuml": "NetworkingContentDelivery/APIGateway",
+   "diagrams": "network.APIGateway"
+  },
+  "cloudfront": {
+   "label": "Amazon CloudFront",
+   "category": "network",
+   "drawio": "res:cloudfront",
+   "plantuml": "NetworkingContentDelivery/CloudFront",
+   "diagrams": "network.CloudFront"
+  },
+  "route53": {
+   "label": "Amazon Route 53",
+   "category": "network",
+   "drawio": "res:route_53",
+   "plantuml": "NetworkingContentDelivery/Route53",
+   "diagrams": "network.Route53"
+  },
+  "tgw": {
+   "label": "AWS Transit Gateway",
+   "category": "network",
+   "drawio": "res:transit_gateway",
+   "plantuml": "NetworkingContentDelivery/TransitGateway",
+   "diagrams": "network.TransitGateway"
+  },
+  "directconnect": {
+   "label": "AWS Direct Connect",
+   "category": "network",
+   "drawio": "res:direct_connect",
+   "plantuml": "NetworkingContentDelivery/DirectConnect",
+   "diagrams": "network.DirectConnect"
+  },
+  "vpn": {
+   "label": "AWS Site-to-Site VPN",
+   "category": "network",
+   "drawio": "res:site_to_site_vpn",
+   "plantuml": "NetworkingContentDelivery/SitetoSiteVPN",
+   "diagrams": "network.SiteToSiteVpn"
+  },
+  "igw": {
+   "label": "Internet Gateway",
+   "category": "network",
+   "drawio": "shp:internet_gateway",
+   "plantuml": "NetworkingContentDelivery/VPCInternetGateway",
+   "diagrams": "network.InternetGateway"
+  },
+  "nat": {
+   "label": "NAT Gateway",
+   "category": "network",
+   "drawio": "shp:nat_gateway",
+   "plantuml": "NetworkingContentDelivery/VPCNATGateway",
+   "diagrams": "network.NATGateway"
+  },
+  "vpce": {
+   "label": "VPC Endpoint",
+   "category": "network",
+   "drawio": "shp:endpoints",
+   "plantuml": "NetworkingContentDelivery/VPCEndpoints",
+   "diagrams": "network.Endpoint"
+  },
+  "privatelink": {
+   "label": "AWS PrivateLink",
+   "category": "network",
+   "drawio": "res:vpc_privatelink",
+   "plantuml": "NetworkingContentDelivery/PrivateLink",
+   "diagrams": "network.Privatelink"
+  },
+  "globalaccelerator": {
+   "label": "AWS Global Accelerator",
+   "category": "network",
+   "drawio": "res:global_accelerator",
+   "plantuml": "NetworkingContentDelivery/GlobalAccelerator",
+   "diagrams": "network.GlobalAccelerator"
+  },
+  "networkfirewall": {
+   "label": "AWS Network Firewall",
+   "category": "network",
+   "drawio": "res:network_firewall",
+   "plantuml": "SecurityIdentityCompliance/NetworkFirewall",
+   "diagrams": "network.NetworkFirewall"
+  },
+  "s3": {
+   "label": "Amazon S3",
+   "category": "storage",
+   "drawio": "res:s3",
+   "plantuml": "Storage/SimpleStorageService",
+   "diagrams": "storage.S3"
+  },
+  "ebs": {
+   "label": "Amazon EBS",
+   "category": "storage",
+   "drawio": "res:elastic_block_store",
+   "plantuml": null,
+   "diagrams": "storage.EBS"
+  },
+  "efs": {
+   "label": "Amazon EFS",
+   "category": "storage",
+   "drawio": "res:elastic_file_system",
+   "plantuml": "Storage/EFS",
+   "diagrams": "storage.EFS"
+  },
+  "fsx": {
+   "label": "Amazon FSx",
+   "category": "storage",
+   "drawio": "res:fsx",
+   "plantuml": "Storage/FSx",
+   "diagrams": "storage.FSx"
+  },
+  "backup": {
+   "label": "AWS Backup",
+   "category": "storage",
+   "drawio": "res:backup",
+   "plantuml": "Storage/Backup",
+   "diagrams": "storage.Backup"
+  },
+  "storagegateway": {
+   "label": "AWS Storage Gateway",
+   "category": "storage",
+   "drawio": "res:storage_gateway",
+   "plantuml": "Storage/StorageGateway",
+   "diagrams": "storage.StorageGateway"
+  },
+  "datasync": {
+   "label": "AWS DataSync",
+   "category": "migration",
+   "drawio": "res:datasync",
+   "plantuml": "MigrationModernization/DataSync",
+   "diagrams": "migration.Datasync"
+  },
+  "rds": {
+   "label": "Amazon RDS",
+   "category": "database",
+   "drawio": "res:rds",
+   "plantuml": "Database/RDS",
+   "diagrams": "database.RDS"
+  },
+  "aurora": {
+   "label": "Amazon Aurora",
+   "category": "database",
+   "drawio": "res:aurora",
+   "plantuml": "Database/Aurora",
+   "diagrams": "database.Aurora"
+  },
+  "dynamodb": {
+   "label": "Amazon DynamoDB",
+   "category": "database",
+   "drawio": "res:dynamodb",
+   "plantuml": "Database/DynamoDB",
+   "diagrams": "database.Dynamodb"
+  },
+  "elasticache": {
+   "label": "Amazon ElastiCache",
+   "category": "database",
+   "drawio": "res:elasticache",
+   "plantuml": "Database/ElastiCache",
+   "diagrams": "database.ElastiCache"
+  },
+  "memorydb": {
+   "label": "Amazon MemoryDB",
+   "category": "database",
+   "drawio": "res:memorydb_for_redis",
+   "plantuml": "Database/MemoryDB",
+   "diagrams": null
+  },
+  "redshift": {
+   "label": "Amazon Redshift",
+   "category": "database",
+   "drawio": "res:redshift",
+   "plantuml": "Analytics/Redshift",
+   "diagrams": "analytics.Redshift"
+  },
+  "neptune": {
+   "label": "Amazon Neptune",
+   "category": "database",
+   "drawio": "res:neptune",
+   "plantuml": "Database/Neptune",
+   "diagrams": "database.Neptune"
+  },
+  "documentdb": {
+   "label": "Amazon DocumentDB",
+   "category": "database",
+   "drawio": "res:documentdb_with_mongodb_compatibility",
+   "plantuml": "Database/DocumentDB",
+   "diagrams": "database.DocumentDB"
+  },
+  "dms": {
+   "label": "AWS Database Migration Service",
+   "category": "migration",
+   "drawio": "res:database_migration_service",
+   "plantuml": "Database/DatabaseMigrationService",
+   "diagrams": "database.DMS"
+  },
+  "sqs": {
+   "label": "Amazon SQS",
+   "category": "integration",
+   "drawio": "res:sqs",
+   "plantuml": "ApplicationIntegration/SimpleQueueService",
+   "diagrams": "integration.SQS"
+  },
+  "sns": {
+   "label": "Amazon SNS",
+   "category": "integration",
+   "drawio": "res:sns",
+   "plantuml": "ApplicationIntegration/SimpleNotificationService",
+   "diagrams": "integration.SNS"
+  },
+  "eventbridge": {
+   "label": "Amazon EventBridge",
+   "category": "integration",
+   "drawio": "res:eventbridge",
+   "plantuml": "ApplicationIntegration/EventBridge",
+   "diagrams": "integration.Eventbridge"
+  },
+  "stepfunctions": {
+   "label": "AWS Step Functions",
+   "category": "integration",
+   "drawio": "res:step_functions",
+   "plantuml": "ApplicationIntegration/StepFunctions",
+   "diagrams": "integration.StepFunctions"
+  },
+  "appsync": {
+   "label": "AWS AppSync",
+   "category": "integration",
+   "drawio": "res:appsync",
+   "plantuml": "ApplicationIntegration/AppSync",
+   "diagrams": "integration.Appsync"
+  },
+  "mq": {
+   "label": "Amazon MQ",
+   "category": "integration",
+   "drawio": "res:mq",
+   "plantuml": "ApplicationIntegration/MQ",
+   "diagrams": "integration.MQ"
+  },
+  "kinesis": {
+   "label": "Amazon Kinesis Data Streams",
+   "category": "analytics",
+   "drawio": "res:kinesis_data_streams",
+   "plantuml": "Analytics/KinesisDataStreams",
+   "diagrams": "analytics.KinesisDataStreams"
+  },
+  "firehose": {
+   "label": "Amazon Data Firehose",
+   "category": "analytics",
+   "drawio": "res:kinesis_data_firehose",
+   "plantuml": "Analytics/DataFirehose",
+   "diagrams": "analytics.KinesisDataFirehose"
+  },
+  "glue": {
+   "label": "AWS Glue",
+   "category": "analytics",
+   "drawio": "res:glue",
+   "plantuml": "Analytics/Glue",
+   "diagrams": "analytics.Glue"
+  },
+  "athena": {
+   "label": "Amazon Athena",
+   "category": "analytics",
+   "drawio": "res:athena",
+   "plantuml": "Analytics/Athena",
+   "diagrams": "analytics.Athena"
+  },
+  "emr": {
+   "label": "Amazon EMR",
+   "category": "analytics",
+   "drawio": "res:emr",
+   "plantuml": "Analytics/EMR",
+   "diagrams": "analytics.EMR"
+  },
+  "opensearch": {
+   "label": "Amazon OpenSearch Service",
+   "category": "analytics",
+   "drawio": null,
+   "plantuml": "Analytics/OpenSearchService",
+   "diagrams": "analytics.AmazonOpensearchService"
+  },
+  "msk": {
+   "label": "Amazon MSK",
+   "category": "analytics",
+   "drawio": "res:managed_streaming_for_kafka",
+   "plantuml": "Analytics/ManagedStreamingforApacheKafka",
+   "diagrams": "analytics.ManagedStreamingForKafka"
+  },
+  "lakeformation": {
+   "label": "AWS Lake Formation",
+   "category": "analytics",
+   "drawio": "res:lake_formation",
+   "plantuml": "Analytics/LakeFormation",
+   "diagrams": "analytics.LakeFormation"
+  },
+  "iam": {
+   "label": "AWS IAM",
+   "category": "security",
+   "drawio": "res:identity_and_access_management",
+   "plantuml": null,
+   "diagrams": "security.IAM"
+  },
+  "cognito": {
+   "label": "Amazon Cognito",
+   "category": "security",
+   "drawio": "res:cognito",
+   "plantuml": "SecurityIdentityCompliance/Cognito",
+   "diagrams": "security.Cognito"
+  },
+  "kms": {
+   "label": "AWS KMS",
+   "category": "security",
+   "drawio": "res:key_management_service",
+   "plantuml": null,
+   "diagrams": "security.KMS"
+  },
+  "secretsmanager": {
+   "label": "AWS Secrets Manager",
+   "category": "security",
+   "drawio": "res:secrets_manager",
+   "plantuml": "SecurityIdentityCompliance/SecretsManager",
+   "diagrams": "security.SecretsManager"
+  },
+  "waf": {
+   "label": "AWS WAF",
+   "category": "security",
+   "drawio": "res:waf",
+   "plantuml": "SecurityIdentityCompliance/WAF",
+   "diagrams": "security.WAF"
+  },
+  "shield": {
+   "label": "AWS Shield",
+   "category": "security",
+   "drawio": "res:shield",
+   "plantuml": "SecurityIdentityCompliance/Shield",
+   "diagrams": "security.Shield"
+  },
+  "guardduty": {
+   "label": "Amazon GuardDuty",
+   "category": "security",
+   "drawio": "res:guardduty",
+   "plantuml": "SecurityIdentityCompliance/GuardDuty",
+   "diagrams": "security.Guardduty"
+  },
+  "securityhub": {
+   "label": "AWS Security Hub",
+   "category": "security",
+   "drawio": "res:security_hub",
+   "plantuml": "SecurityIdentityCompliance/SecurityHub",
+   "diagrams": "security.SecurityHub"
+  },
+  "inspector": {
+   "label": "Amazon Inspector",
+   "category": "security",
+   "drawio": "res:inspector",
+   "plantuml": "SecurityIdentityCompliance/Inspector",
+   "diagrams": "security.Inspector"
+  },
+  "macie": {
+   "label": "Amazon Macie",
+   "category": "security",
+   "drawio": "res:macie",
+   "plantuml": "SecurityIdentityCompliance/Macie",
+   "diagrams": "security.Macie"
+  },
+  "acm": {
+   "label": "AWS Certificate Manager",
+   "category": "security",
+   "drawio": "shp:certificate_manager",
+   "plantuml": "SecurityIdentityCompliance/CertificateManager",
+   "diagrams": "security.CertificateManager"
+  },
+  "directoryservice": {
+   "label": "AWS Directory Service",
+   "category": "security",
+   "drawio": "res:directory_service",
+   "plantuml": "SecurityIdentityCompliance/DirectoryService",
+   "diagrams": "security.DirectoryService"
+  },
+  "cloudwatch": {
+   "label": "Amazon CloudWatch",
+   "category": "management",
+   "drawio": "res:cloudwatch_2",
+   "plantuml": "ManagementGovernance/CloudWatch",
+   "diagrams": "management.Cloudwatch"
+  },
+  "cloudtrail": {
+   "label": "AWS CloudTrail",
+   "category": "management",
+   "drawio": "res:cloudtrail",
+   "plantuml": "ManagementGovernance/CloudTrail",
+   "diagrams": "management.Cloudtrail"
+  },
+  "config": {
+   "label": "AWS Config",
+   "category": "management",
+   "drawio": "res:config",
+   "plantuml": "ManagementGovernance/Config",
+   "diagrams": "management.Config"
+  },
+  "organizations": {
+   "label": "AWS Organizations",
+   "category": "management",
+   "drawio": "res:organizations",
+   "plantuml": "ManagementGovernance/Organizations",
+   "diagrams": "management.Organizations"
+  },
+  "controltower": {
+   "label": "AWS Control Tower",
+   "category": "management",
+   "drawio": "res:control_tower",
+   "plantuml": "ManagementGovernance/ControlTower",
+   "diagrams": "management.ControlTower"
+  },
+  "cloudformation": {
+   "label": "AWS CloudFormation",
+   "category": "management",
+   "drawio": "res:cloudformation",
+   "plantuml": "ManagementGovernance/CloudFormation",
+   "diagrams": "management.Cloudformation"
+  },
+  "systemsmanager": {
+   "label": "AWS Systems Manager",
+   "category": "management",
+   "drawio": "res:systems_manager",
+   "plantuml": "ManagementGovernance/SystemsManager",
+   "diagrams": "management.SystemsManager"
+  },
+  "codepipeline": {
+   "label": "AWS CodePipeline",
+   "category": "devtools",
+   "drawio": "res:codepipeline",
+   "plantuml": "DeveloperTools/CodePipeline",
+   "diagrams": "devtools.Codepipeline"
+  },
+  "codebuild": {
+   "label": "AWS CodeBuild",
+   "category": "devtools",
+   "drawio": "res:codebuild",
+   "plantuml": "DeveloperTools/CodeBuild",
+   "diagrams": "devtools.Codebuild"
+  },
+  "codecommit": {
+   "label": "AWS CodeCommit",
+   "category": "devtools",
+   "drawio": "res:codecommit",
+   "plantuml": "DeveloperTools/CodeCommit",
+   "diagrams": "devtools.Codecommit"
+  },
+  "codedeploy": {
+   "label": "AWS CodeDeploy",
+   "category": "devtools",
+   "drawio": "res:codedeploy",
+   "plantuml": "DeveloperTools/CodeDeploy",
+   "diagrams": "devtools.Codedeploy"
+  },
+  "xray": {
+   "label": "AWS X-Ray",
+   "category": "devtools",
+   "drawio": "res:xray",
+   "plantuml": "DeveloperTools/XRay",
+   "diagrams": "devtools.XRay"
+  },
+  "cdk": {
+   "label": "AWS CDK",
+   "category": "devtools",
+   "drawio": "res:cloud_development_kit",
+   "plantuml": null,
+   "diagrams": null
+  },
+  "sagemaker": {
+   "label": "Amazon SageMaker AI",
+   "category": "ml",
+   "drawio": "res:sagemaker_2",
+   "plantuml": "ArtificialIntelligence/SageMakerAI",
+   "diagrams": "ml.Sagemaker"
+  },
+  "bedrock": {
+   "label": "Amazon Bedrock",
+   "category": "ml",
+   "drawio": "res:bedrock",
+   "plantuml": "ArtificialIntelligence/Bedrock",
+   "diagrams": "ml.Bedrock"
+  },
+  "mgn": {
+   "label": "AWS Application Migration Service (MGN)",
+   "category": "migration",
+   "drawio": null,
+   "plantuml": "MigrationModernization/ApplicationMigrationService",
+   "diagrams": null
+  },
+  "user": {
+   "label": "Users",
+   "category": "generic",
+   "drawio": "shp:users",
+   "plantuml": "General/User",
+   "diagrams": "general.Users"
+  },
+  "client": {
+   "label": "Client",
+   "category": "generic",
+   "drawio": "shp:client",
+   "plantuml": "General/Client",
+   "diagrams": "general.Client"
+  },
+  "internet": {
+   "label": "Internet",
+   "category": "generic",
+   "drawio": "shp:internet",
+   "plantuml": "General/Internet",
+   "diagrams": "general.InternetAlt1"
+  },
+  "onprem": {
+   "label": "On-premises server",
+   "category": "generic",
+   "drawio": "shp:traditional_server",
+   "plantuml": null,
+   "diagrams": "onprem.compute.Server"
+  },
+  "datacenter": {
+   "label": "Corporate data center",
+   "category": "generic",
+   "drawio": "shp:corporate_data_center",
+   "plantuml": null,
+   "diagrams": null
+  },
+  "generic": {
+   "label": "Component",
+   "category": "generic",
+   "drawio": null,
+   "plantuml": null,
+   "diagrams": null
+  }
+ }
+}

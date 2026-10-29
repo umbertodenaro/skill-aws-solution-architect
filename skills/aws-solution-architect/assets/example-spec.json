@@ -1,0 +1,39 @@
+{
+  "title": "Three-tier web app on AWS",
+  "direction": "LR",
+  "groups": [
+    {"id": "cloud", "label": "AWS Cloud", "type": "cloud"},
+    {"id": "region", "label": "eu-west-1", "type": "region", "parent": "cloud"},
+    {"id": "vpc", "label": "VPC", "type": "vpc", "parent": "region"},
+    {"id": "az1", "label": "AZ a", "type": "az", "parent": "vpc"},
+    {"id": "az2", "label": "AZ b", "type": "az", "parent": "vpc"},
+    {"id": "pub1", "label": "Public subnet", "type": "public-subnet", "parent": "az1"},
+    {"id": "app1", "label": "Private subnet (app)", "type": "private-subnet", "parent": "az1"},
+    {"id": "pub2", "label": "Public subnet", "type": "public-subnet", "parent": "az2"},
+    {"id": "app2", "label": "Private subnet (app)", "type": "private-subnet", "parent": "az2"}
+  ],
+  "nodes": [
+    {"id": "users", "service": "user", "label": "Users"},
+    {"id": "cf", "service": "cloudfront", "group": "region"},
+    {"id": "waf", "service": "waf", "group": "region"},
+    {"id": "alb", "service": "alb", "label": "ALB", "group": "vpc"},
+    {"id": "nat1", "service": "nat", "group": "pub1"},
+    {"id": "nat2", "service": "nat", "group": "pub2"},
+    {"id": "ecs1", "service": "fargate", "label": "App tasks", "group": "app1"},
+    {"id": "ecs2", "service": "fargate", "label": "App tasks", "group": "app2"},
+    {"id": "db", "service": "aurora", "label": "Aurora (Multi-AZ)", "group": "vpc"},
+    {"id": "s3", "service": "s3", "label": "Static assets", "group": "region"}
+  ],
+  "edges": [
+    {"from": "users", "to": "cf", "label": "HTTPS"},
+    {"from": "cf", "to": "waf"},
+    {"from": "waf", "to": "alb"},
+    {"from": "cf", "to": "s3", "style": "dashed", "label": "static"},
+    {"from": "alb", "to": "ecs1"},
+    {"from": "alb", "to": "ecs2"},
+    {"from": "ecs1", "to": "db"},
+    {"from": "ecs2", "to": "db"},
+    {"from": "ecs1", "to": "nat1", "style": "dashed"},
+    {"from": "ecs2", "to": "nat2", "style": "dashed"}
+  ]
+}

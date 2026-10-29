@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: onprem-oracle-java-migration
+expected_outcome: |
+  A migration plan using the AWS 7 Rs with per-workload rationale, tooling (AWS MGN for rehost, DMS for Oracle replication with a verify-live note on schema conversion/engine choice), Direct Connect/VPN connectivity, landing zone first, wave plan, data transfer time estimate, licensing risk (Oracle/WebLogic), cutover and rollback, and notes that tool names should be checked live.

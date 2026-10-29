@@ -1,0 +1,46 @@
+%% Three-tier web app on AWS
+flowchart LR
+  n_users["Users"]:::generic
+  subgraph g_cloud["AWS Cloud"]
+    subgraph g_region["eu-west-1"]
+      n_cf["Amazon CloudFront"]:::network
+      n_waf["AWS WAF"]:::security
+      n_s3["Static assets"]:::storage
+      subgraph g_vpc["VPC"]
+        n_alb["ALB"]:::network
+        n_db["Aurora (Multi-AZ)"]:::database
+        subgraph g_az1["AZ a"]
+          subgraph g_pub1["Public subnet"]
+            n_nat1["NAT Gateway"]:::network
+          end
+          subgraph g_app1["Private subnet (app)"]
+            n_ecs1["App tasks"]:::compute
+          end
+        end
+        subgraph g_az2["AZ b"]
+          subgraph g_pub2["Public subnet"]
+            n_nat2["NAT Gateway"]:::network
+          end
+          subgraph g_app2["Private subnet (app)"]
+            n_ecs2["App tasks"]:::compute
+          end
+        end
+      end
+    end
+  end
+  n_users -->|"HTTPS"| n_cf
+  n_cf --> n_waf
+  n_waf --> n_alb
+  n_cf -.->|"static"| n_s3
+  n_alb --> n_ecs1
+  n_alb --> n_ecs2
+  n_ecs1 --> n_db
+  n_ecs2 --> n_db
+  n_ecs1 -.-> n_nat1
+  n_ecs2 -.-> n_nat2
+  classDef compute fill:#fff,stroke:#ED7100,stroke-width:2px,color:#232F3E
+  classDef database fill:#fff,stroke:#C925D1,stroke-width:2px,color:#232F3E
+  classDef generic fill:#fff,stroke:#232F3E,stroke-width:2px,color:#232F3E
+  classDef network fill:#fff,stroke:#8C4FFF,stroke-width:2px,color:#232F3E
+  classDef security fill:#fff,stroke:#DD344C,stroke-width:2px,color:#232F3E
+  classDef storage fill:#fff,stroke:#7AA116,stroke-width:2px,color:#232F3E

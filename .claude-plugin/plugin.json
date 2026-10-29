@@ -1,0 +1,10 @@
+{
+  "name": "aws-solution-architect",
+  "version": "0.1.0",
+  "description": "Senior AWS Solution Architect skill: designs, reviews and documents AWS solutions grounded in official AWS documentation, with architecture diagrams (Mermaid, draw.io, PlantUML, Python diagrams).",
+  "author": { "name": "umbertodenaro" },
+  "homepage": "https://github.com/umbertodenaro/skill-aws-solution-architect",
+  "repository": "https://github.com/umbertodenaro/skill-aws-solution-architect",
+  "license": "MIT",
+  "keywords": ["aws", "solution-architect", "well-architected", "architecture", "diagrams", "migration", "finops"]
+}

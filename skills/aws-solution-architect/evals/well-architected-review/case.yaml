@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: well-architected-review
+expected_outcome: |
+  A structured review covering all six pillars with severity-rated findings, concrete fixes with AWS doc links, and a prioritized improvement plan: backups and Multi-AZ/managed DB, close ports 22/3306, no public S3 and no long-lived keys (IAM roles), multi-account separation, IaC/CI-CD, CloudWatch + budgets, sustainability/performance notes.

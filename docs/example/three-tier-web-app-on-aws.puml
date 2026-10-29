@@ -1,0 +1,63 @@
+@startuml
+title Three-tier web app on AWS
+!define AWSPuml https://raw.githubusercontent.com/awslabs/aws-icons-for-plantuml/v23.1/dist
+!include AWSPuml/AWSCommon.puml
+!include AWSPuml/General/User.puml
+!include AWSPuml/NetworkingContentDelivery/CloudFront.puml
+!include AWSPuml/SecurityIdentityCompliance/WAF.puml
+!include AWSPuml/NetworkingContentDelivery/ElasticLoadBalancingApplicationLoadBalancer.puml
+!include AWSPuml/NetworkingContentDelivery/VPCNATGateway.puml
+!include AWSPuml/Containers/Fargate.puml
+!include AWSPuml/Database/Aurora.puml
+!include AWSPuml/Storage/SimpleStorageService.puml
+!include AWSPuml/Groups/AWSCloud.puml
+!include AWSPuml/Groups/VPC.puml
+!include AWSPuml/Groups/PublicSubnet.puml
+!include AWSPuml/Groups/PrivateSubnet.puml
+!include AWSPuml/Groups/Region.puml
+!include AWSPuml/Groups/AvailabilityZone.puml
+
+hide stereotype
+skinparam linetype ortho
+left to right direction
+
+User(users, "Users", "Users")
+AWSCloudGroup(cloud, "AWS Cloud") {
+  RegionGroup(region, "eu-west-1") {
+    CloudFront(cf, "Amazon CloudFront", "AWS")
+    WAF(waf, "AWS WAF", "AWS")
+    SimpleStorageService(s3, "Static assets", "Amazon S3")
+    VPCGroup(vpc, "VPC") {
+      ElasticLoadBalancingApplicationLoadBalancer(alb, "ALB", "Application Load Balancer")
+      Aurora(db, "Aurora (Multi-AZ)", "Amazon Aurora")
+      AvailabilityZoneGroup(az1, "AZ a") {
+        PublicSubnetGroup(pub1, "Public subnet") {
+          VPCNATGateway(nat1, "NAT Gateway", "AWS")
+        }
+        PrivateSubnetGroup(app1, "Private subnet (app)") {
+          Fargate(ecs1, "App tasks", "AWS Fargate")
+        }
+      }
+      AvailabilityZoneGroup(az2, "AZ b") {
+        PublicSubnetGroup(pub2, "Public subnet") {
+          VPCNATGateway(nat2, "NAT Gateway", "AWS")
+        }
+        PrivateSubnetGroup(app2, "Private subnet (app)") {
+          Fargate(ecs2, "App tasks", "AWS Fargate")
+        }
+      }
+    }
+  }
+}
+
+users --> cf: HTTPS
+cf --> waf
+waf --> alb
+cf ..> s3: static
+alb --> ecs1
+alb --> ecs2
+ecs1 --> db
+ecs2 --> db
+ecs1 ..> nat1
+ecs2 ..> nat2
+@enduml

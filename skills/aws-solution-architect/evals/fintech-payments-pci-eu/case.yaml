@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: fintech-payments-pci-eu
+expected_outcome: |
+  A design on AWS grounded in official docs: containers on ECS/Fargate (not EKS, given skills), Multi-AZ, DR strategy matching RTO 15 min / RPO 1 min (warm standby or active/active, justified), EU-only Regions, CDE isolation in separate account/VPC, shared-responsibility note for PCI DSS, a diagram, and Well-Architected risks. Prices not invented.

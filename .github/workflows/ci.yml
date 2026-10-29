@@ -1,0 +1,21 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Install diagrams (used only to verify the catalog)
+        run: pip install diagrams
+      - name: Validate and render the example spec in all formats
+        run: |
+          python skills/aws-solution-architect/scripts/render_diagram.py skills/aws-solution-architect/assets/example-spec.json --validate-only
+          python skills/aws-solution-architect/scripts/render_diagram.py skills/aws-solution-architect/assets/example-spec.json --format all -o out
+          python -c "import xml.dom.minidom,glob;[xml.dom.minidom.parse(f) for f in glob.glob('out/*.drawio')]"
+          python -m py_compile out/*.py
+      - name: Verify every icon identifier against upstream sources
+        run: python skills/aws-solution-architect/scripts/verify_catalog.py
+      - name: SKILL.md stays under 500 lines
+        run: test "$(wc -l < skills/aws-solution-architect/SKILL.md)" -lt 500

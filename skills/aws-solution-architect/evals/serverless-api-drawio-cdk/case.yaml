@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: serverless-api-drawio-cdk
+expected_outcome: |
+  A serverless design (Cognito, API Gateway, Lambda, DynamoDB, S3 with presigned uploads, EventBridge/DynamoDB Streams + SNS/SES for notifications) with a valid .drawio file and Mermaid diagram generated from the same spec, and a CDK Python skeleton without secrets and with least-privilege grants; notes on what is unverified.
